@@ -56,7 +56,7 @@ function snakeUpdate() {
     var snakeHeadX = snake[0].x;
     var snakeHeadY = snake[0].y;
     
-    snakeHeadX++;
+    snakeHeadY++;
     
     var snakeTail = snake.pop();
     snakeTail.x = snakeHeadX;
@@ -68,7 +68,16 @@ function foodInititialize(){
         x:0,
         y:0
     };
+    setFoodPosition();
 }
 function foodDraw (){
     context.fillStyle = "white";
-}  context.fillRect(food.x, food.y, snakesize, snakesize);
+  context.fillRect(food.x, food.y, snakesize, snakesize);
+}
+function setFoodPosition() {
+    var randomX = Math.floor(Math.random() * screenWidth);
+    var randomY = Math.floor(Math.random() * screenHeight);
+    
+    food.X = randomX;
+    food.Y = randomY;
+}
